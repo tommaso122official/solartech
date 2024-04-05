@@ -1,5 +1,5 @@
 #include <Servo.h>
-
+#define wait 100
 Servo myservo1, myservo2;
 int analogPin = A1;
 int ser1 = 0;
@@ -14,15 +14,18 @@ void setup() {
 }
 
 void loop() {
-
+  myservo1.write(0);
+  delay(wait);  // Tempo utile per raggiungimento della posizione
+  myservo2.write(0);
+  delay(wait);  // Tempo utile per raggiungimento della posizione
   for (int pos1 = 0; pos1 <= 90; pos1++) {
     int elab1=pos1*3;
     myservo1.write(elab1);
-    delay(100);  // Tempo utile per raggiungimento della posizione
+    delay(wait);  // Tempo utile per raggiungimento della posizione
     for (int pos2 = 0; pos2 <= 30; pos2++) {
       int elab2=pos2*3;
       myservo2.write(elab2);
-      delay(100);  // Tempo utile per raggiungimento della posizione
+      delay(wait);  // Tempo utile per raggiungimento della posizione
       int voltage = analogRead(analogPin);
       if (voltage > maxVoltage) {
         maxVoltage = voltage;
