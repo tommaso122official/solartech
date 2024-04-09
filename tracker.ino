@@ -1,5 +1,5 @@
 #include <Servo.h>
-#define wait 100
+#define wait 50
 Servo myservo1, myservo2;
 int analogPin = A1;
 int ser1 = 0;
