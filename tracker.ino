@@ -28,6 +28,10 @@ void loop() {
       delay(wait);  // Tempo utile per raggiungimento della posizione
       int voltage = analogRead(analogPin);
       Serial.println(voltage);
+      Serial.println(" pos1: ");
+      Serial.println(pos1);
+      Serial.println(" pos2: ");
+      Serial.println(pos2);
       if (voltage > maxVoltage) {
         maxVoltage = voltage;
         optimalPos1 = pos1;
