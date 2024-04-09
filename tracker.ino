@@ -2,8 +2,8 @@
 #define wait 50
 Servo myservo1, myservo2;
 int analogPin = A1;
-int ser1 = 0;
-int ser2 = 0;
+/*int ser1 = 0;
+int ser2 = 0;*/
 int maxVoltage = 0;
 int optimalPos1 = 0;
 int optimalPos2 = 0;
@@ -15,9 +15,9 @@ void setup() {
 
 void loop() {
   myservo1.write(0);
-  delay(wait);  // Tempo utile per raggiungimento della posizione
+  delay(100);  // Tempo utile per raggiungimento della posizione
   myservo2.write(0);
-  delay(wait);  // Tempo utile per raggiungimento della posizione
+  delay(100);  // Tempo utile per raggiungimento della posizione
   for (int pos1 = 0; pos1 <= 90; pos1++) {
     int elab1=pos1*3;
     myservo1.write(elab1);
@@ -31,13 +31,13 @@ void loop() {
       Serial.print("mV: ");
       Serial.print(voltage);
       Serial.print(" pos1: ");
-      Serial.print(pos1);
+      Serial.print(elab1);
       Serial.print(" pos2: ");
-      Serial.print(pos2);
+      Serial.print(elab2);
       if (voltage > maxVoltage) {
         maxVoltage = voltage;
-        optimalPos1 = pos1;
-        optimalPos2 = pos2;
+        optimalPos1 = elab1;
+        optimalPos2 = elab2;
       }
     }
   }
