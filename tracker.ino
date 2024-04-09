@@ -27,11 +27,13 @@ void loop() {
       myservo2.write(elab2);
       delay(wait);  // Tempo utile per raggiungimento della posizione
       int voltage = analogRead(analogPin);
-      Serial.println(voltage);
-      Serial.println(" pos1: ");
-      Serial.println(pos1);
-      Serial.println(" pos2: ");
-      Serial.println(pos2);
+      Serial.println(" ");
+      Serial.print("mV: ");
+      Serial.print(voltage);
+      Serial.print(" pos1: ");
+      Serial.print(pos1);
+      Serial.print(" pos2: ");
+      Serial.print(pos2);
       if (voltage > maxVoltage) {
         maxVoltage = voltage;
         optimalPos1 = pos1;
@@ -42,7 +44,7 @@ void loop() {
 
   myservo1.write(optimalPos1);
   myservo2.write(optimalPos2);
-
+  Serial.println(" ");
   Serial.print("Optimal Position 1: ");
   Serial.print(optimalPos1);
   Serial.print(", Optimal Position 2: ");
