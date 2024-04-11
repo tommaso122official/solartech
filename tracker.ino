@@ -1,7 +1,7 @@
 #include <Servo.h>
 #define wait 50
 Servo myservo1, myservo2;
-int analogPin = A1;
+int analogPin = A2;
 /*int ser1 = 0;
 int ser2 = 0;*/
 int maxVoltage = 0;
